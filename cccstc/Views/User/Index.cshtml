@@ -1,0 +1,23 @@
+﻿@using System.Collections.Generic
+@using cccstc
+@model IEnumerable<cccstc.Session>
+
+@{
+    ViewBag.Title = "User";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-striped">
+<tr>
+<th>Email</th><th>Start</th><th>End</th><th>Length</th>
+</tr>
+@foreach(Session s in Model)
+{
+<tr>
+	<td>@s.Email</td>
+	<td>@s.Start.ToString()</td>
+	<td>@s.End.ToString()</td>
+	<td>@s.ElapsedTime().ToString()</td>
+</tr>
+}
+</table>

@@ -1,0 +1,22 @@
+﻿@helper Nav(){
+  <ul class="nav nav-pills">
+  	<li role="presentation"><a href="#">Home</a></li>
+  	<li role="presentation"><a href="/timesheets">Timesheets</a></li>
+  	<li role="presentation"><a href="/info">Information</a></li>
+  </ul>
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="Content/extra.css">
+</head>
+<body>
+	<div class="container-fluid">
+		@Nav()
+		@RenderBody()
+	</div>
+</body>
+</html>
+

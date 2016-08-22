@@ -1,0 +1,16 @@
+/home/nate/Code/cccstc/cccstc/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/nate/Code/cccstc/cccstc/bin/cccstc.dll.mdb
+/home/nate/Code/cccstc/cccstc/bin/cccstc.dll
+/home/nate/Code/cccstc/cccstc/obj/Debug/cccstc.dll
+/home/nate/Code/cccstc/cccstc/obj/Debug/cccstc.dll.mdb
+/home/nate/Code/cccstc/cccstc/bin/Microsoft.Web.Infrastructure.dll
+/home/nate/Code/cccstc/cccstc/bin/System.Web.Razor.dll
+/home/nate/Code/cccstc/cccstc/bin/System.Web.Helpers.dll
+/home/nate/Code/cccstc/cccstc/bin/System.Web.WebPages.dll
+/home/nate/Code/cccstc/cccstc/bin/System.Web.WebPages.Deployment.dll
+/home/nate/Code/cccstc/cccstc/bin/System.Web.WebPages.Razor.dll
+/home/nate/Code/cccstc/cccstc/bin/System.Web.Mvc.dll
+/home/nate/Code/cccstc/cccstc/bin/EntityFramework.dll
+/home/nate/Code/cccstc/cccstc/bin/EntityFramework.SqlServer.dll
+/home/nate/Code/cccstc/cccstc/bin/HumDrum.dll
+/home/nate/Code/cccstc/cccstc/bin/HumDrum.dll.mdb
