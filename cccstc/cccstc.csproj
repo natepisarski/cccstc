@@ -76,6 +76,7 @@
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
     <Folder Include="Views\User\" />
+    <Folder Include="Views\Timesheets\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -86,6 +87,8 @@
     <Compile Include="Models\STCFactory.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\TimesheetsController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -113,6 +116,52 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\extra.css" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Timesheets\Index.cshtml" />
+    <Content Include="Content\site.js" />
+    <Content Include="content\bootstrap-select\bootstrap-select.less" />
+    <Content Include="content\bootstrap-select\variables.less" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-bg_BG.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-bg_BG.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-cs_CZ.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-cs_CZ.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-de_DE.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-de_DE.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-en_US.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-en_US.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-es_CL.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-es_CL.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-eu.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-eu.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-fr_FR.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-fr_FR.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-hu_HU.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-hu_HU.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-it_IT.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-it_IT.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-nl_NL.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-nl_NL.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-pl_PL.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-pl_PL.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-pt_BR.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-pt_BR.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-ro_RO.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-ro_RO.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-ru_RU.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-ru_RU.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-sl_SI.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-sl_SI.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-sv_SE.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-sv_SE.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-tr_TR.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-tr_TR.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-ua_UA.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-ua_UA.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-zh_CN.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-zh_CN.min.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-zh_TW.js" />
+    <Content Include="scripts\i18n\bootstrap-select\defaults-zh_TW.min.js" />
+    <Content Include="scripts\bootstrap-select.js" />
+    <Content Include="scripts\bootstrap-select.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -130,6 +179,7 @@
     <None Include="Content\bootstrap.css.map" />
     <None Include="Content\bootstrap.min.css.map" />
     <None Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="scripts\bootstrap-select.js.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\HumDrum\HumDrum\HumDrum.csproj">

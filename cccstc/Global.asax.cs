@@ -20,6 +20,8 @@ namespace cccstc
 				new { controller = "Home", action = "Index", id = "" }
 			);
 
+			// TODO: Make the database non-static and global
+			//this.Session.Add("database", new STCFactory("/Content/stcdb.sqlite");
 		}
 
 		public static void RegisterGlobalFilters (GlobalFilterCollection filters)
