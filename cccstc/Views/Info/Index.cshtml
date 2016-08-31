@@ -15,7 +15,24 @@
 		<br>
 	}
 }
+<h1 class="center">Information</h1>
+<h3 class="center margin5">Displays information left by STC's</h3>
+<hr>
+<h2 class="center">Add new information</h2>
+<row>
+<div class="col-md-3">
+	<h2 class="center">Title</h2>
+	<textarea id="newInfoTitle" class="textStretch25"></textarea>
+</div>
 
+<div class="col-md-9">
+<h2 class="center">Information body</h2>
+	<textarea id="newInfoBody" class="textStretch25"></textarea>
+</div>
+<button class="btn btn-default btn-block" onclick="submitInfoQuery(newInfoTitle, newInfoBody)">Submit information</button>
+</row>
+<hr>
+<h1 id="message" class="center"></h1>
 @foreach(Info i in Model)
 {
 	<div class="panel panel-default">

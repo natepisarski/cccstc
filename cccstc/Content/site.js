@@ -86,3 +86,18 @@ function submitDateQuery(email, fromMonth, fromDay, fromTime, fromAM_PM, toMonth
 
 	ajaxRequest.done(function(html) { $("#message").replaceWith(html);});
 }
+
+function submitInfoQuery(title, body)
+{
+	var ajaxRequest = $.ajax({
+		method: "POST",
+		url: "/Info/WriteInfo",
+		dataType: "html",
+		data: {
+			title: title.value,
+			body: body.value
+		}
+	});
+
+	ajaxRequest.done(function(html) { $("#message").replaceWith(html);});
+}

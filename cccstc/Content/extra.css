@@ -10,6 +10,11 @@
 	margin-left: 5%;
 }
 
+.textStretch25 {
+	height: 50px;
+	width: 100%;
+}
+
 button {
 	padding: 0% 15% 0% 15%;
 }
