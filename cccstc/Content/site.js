@@ -101,3 +101,19 @@ function submitInfoQuery(title, body)
 
 	ajaxRequest.done(function(html) { $("#message").replaceWith(html);});
 }
+
+function registerUser(name, email)
+{
+	$.ajax({
+		url: "/Registration/WriteWorker",
+		data: {
+			name: name.value,
+			email: email.value
+		}
+	}).done(function () { reload(); });
+}
+
+function reload()
+{
+	window.location.reload(false);
+}

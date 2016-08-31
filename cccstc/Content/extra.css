@@ -15,6 +15,10 @@
 	width: 100%;
 }
 
+.fullWidth {
+	width: 100%;
+}
+
 button {
 	padding: 0% 15% 0% 15%;
 }

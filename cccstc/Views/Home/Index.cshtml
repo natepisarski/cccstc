@@ -17,6 +17,12 @@
 				<div class="center inline">@stc.Name</div>
 			</li>
 		}
+
+		<li class="list-group-item">
+			<div class="center">
+				<input type="text" id="newName" class="fullwidth center">
+			</div>
+		</li>
 		</ul>
 	</div>
 	<div class="col-md-6">
@@ -28,8 +34,14 @@
 					<div class="center inline"><a href="mailto:@stc.Email">@stc.Email</a></div>
 				</li>
 			}
+
+			<li class="list-group-item">
+				<div class="center">
+					<input type="text" id="newEmail" class="fullwidth center">
+				</div>
+			</li>
 		</ul>
 	</div>
-	</div>
 </row>
+<button class="btn btn-default btn-block" onclick="registerUser(newName, newEmail)">Register User</button>
 <hr>

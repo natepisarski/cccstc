@@ -139,8 +139,35 @@ namespace cccstc
 		/// <param name="database">The path to the database file</param>
 		public static void WriteInformation(string title, string text, int sticky, string database)
 		{
-			// TODO: Overload this to work on an Info object
 			ExecuteSQL(String.Format("INSERT INTO information VALUES('{0}', '{1}', '{2}');", title, text, sticky), database);
+		}
+
+		/// <summary>
+		/// Writes this information object to the database
+		/// </summary>
+		/// <param name="info">The information object to add</param>
+		public static void WriteInformation(Info info, string database)
+		{
+			WriteInformation (info.Title, info.Text, info.Sticky ? 1 : 0, database);
+		}
+
+		/// <summary>
+		/// Writes a given user to the database
+		/// </summary>
+		/// <param name="name">The first and last name of the worker</param>
+		/// <param name="email">The email of the user</param>
+		public static void WriteWorker(string name, string email, string database)
+		{
+			ExecuteSQL(String.Format("INSERT INTO workers VALUES('{0}', '{1}');",  email, name), database);
+		}
+
+		/// <summary>
+		/// Writes the worker to the database
+		/// </summary>
+		/// <param name="worker">The worker to add</param>
+		public static void WriteWorker(STC worker, string database)
+		{
+			WriteWorker (worker.Name, worker.Email, database);
 		}
 
 		/// <summary>

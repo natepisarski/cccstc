@@ -92,6 +92,7 @@
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Models\Info.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
