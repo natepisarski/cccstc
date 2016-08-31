@@ -1,0 +1,32 @@
+﻿@using cccstc
+@model IEnumerable<Info>
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@helper InterpolateBreakLines(string text)
+{
+	string[] pieces = text.Split("\n".ToCharArray());
+
+	foreach(string s in pieces)
+	{
+		<p>@s.Replace("\\n", "")</p>
+		<br>
+	}
+}
+
+@foreach(Info i in Model)
+{
+	<div class="panel panel-default">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">@i.Title</h3>
+  		</div>
+  		<div class="panel-body">
+  			<p>
+  			<br>
+    		@InterpolateBreakLines(@i.Text)
+    		</p>
+  		</div>
+	</div>
+}

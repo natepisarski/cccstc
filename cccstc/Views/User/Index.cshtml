@@ -1,4 +1,5 @@
 ﻿@using System.Collections.Generic
+@using HumDrum.Collections
 @using cccstc
 @model IEnumerable<cccstc.Session>
 
@@ -7,6 +8,63 @@
     Layout = "/Views/Shared/_Layout.cshtml";
 }
 
+@helper GenerateBox(IEnumerable<string> items, string selectAttributes, string optionAttributes)
+{
+	<select @selectAttributes>
+	@foreach(string item in items)
+	{
+		<option @optionAttributes>@item</option>
+	}
+	</select>
+}
+
+@helper GenerateDateQuery(string type)
+{
+	@GenerateBox(
+		Transformations.Make("January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"),
+		"class=\"selectpicker\" id=" + type + "Month",
+		"")
+
+	@GenerateBox(
+		Transformations.Make(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31).ForEvery(x => x.ToString()),
+		"id=" + type + "Day",
+		"")
+
+	string name = (type + "Time");
+	<input type="text" id="@name">
+	@GenerateBox(
+		Transformations.Make("AM", "PM"), "id=" + type + "AM_PM", "")
+}
+
+<h1 class="center">User Clocking</h1>
+<h4 class="center">This form allows you to view past sesions from workers, and submit your own sessions.</h4>
+<hr>
+<h2 class="center">Submit a session</h2>
+<div class="center">
+	<b>Email: </b> @GenerateBox(Model.ForEvery(x => x.Email).RemoveDuplicates(), "id=email", "") 
+	<br>
+</div>
+<row>
+	<div class="col-md-6">
+	<div class="center">
+	<h4>Session Start</h4>
+	@GenerateDateQuery("from")
+	</div>
+	</div>
+	<div class="col-md-6">
+	<div class="center">
+	<h4>Session end</h4>
+	@GenerateDateQuery("to")
+	</div>
+	</div>
+	<br><br>
+	<button class="center btn btn-primary btn-block" onclick="submitDateQuery(email, fromMonth, fromDay, fromTime, fromAM_PM, toMonth, toDay, toTime, toAM_PM)">Submit</button>
+</row>
+<div id="message" class="center">
+	
+</div>
+<hr>
+<h2 class="center">Past Sessions</h2>
 <table class="table table-striped">
 <tr>
 <th>Email</th><th>Start</th><th>End</th><th>Length</th>

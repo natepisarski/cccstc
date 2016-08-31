@@ -3,25 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using cccstc;
 
 namespace cccstc.Controllers
 {
-	/*
-	 * <table class="table table-striped">
-<tr>
-<th>Email</th><th>Start</th><th>End</th><th>Length</th>
-</tr>
-@foreach(Session s in Model)
-{
-<tr>
-	<td>@s.Email</td>
-	<td>@s.Start.ToString()</td>
-	<td>@s.End.ToString()</td>
-	<td>@s.ElapsedTime().ToString()</td>
-</tr>
-}
-</table>
-*/
+
     public class SessionController : Controller
     {
         public ActionResult Index()
@@ -59,7 +45,7 @@ namespace cccstc.Controllers
 
 			// Add all of the sessions to the table
 			foreach (Session s in sessions) 
-				responseHTML += HTML_MakeTableRow (s.Email, s.Start.ToString (), s.End.ToString (), s.ElapsedTime().ToString ());
+				responseHTML += HTML_MakeTableRow (s.Email, s.Start.ToString (), s.End.ToString() ?? "", s.ElapsedTime().ToString ());
 
 			TimeSpan totalHours = new TimeSpan ();
 
@@ -69,6 +55,35 @@ namespace cccstc.Controllers
 			responseHTML += "</table><h3 class=\"center\">Total hours: " + totalHours + "</h3>";
 
 			return responseHTML;
+		}
+
+		/// <summary>
+		/// This will write the section to the database and return the success message
+		/// </summary>
+		/// <returns>The session.</returns>
+		public string WriteSession()
+		{
+			string dateFromString = Request ["fromFormat"];
+			string toString = Request ["toFormat"];
+			string email = Request ["email"];
+
+			DateTime fromDate = Convert.ToDateTime (dateFromString);
+			DateTime toDate = Convert.ToDateTime (toString);
+
+			Session toWrite = new Session (email, fromDate.ToString (), toDate.ToString ());
+
+			STCFactory.WriteSession (toWrite, "Content/stcdb.sqlite");
+
+			return "Session for " + email + " successfully written to the database";
+		}
+
+		/// <summary>
+		/// Looks for sessions that are not finished
+		/// </summary>
+		/// <returns>The sessions which have nothing in the END column</returns>
+		public IEnumerable<Session> OpenSessions()
+		{
+			return null; //TODO
 		}
     }
 }

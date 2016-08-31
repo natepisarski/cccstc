@@ -60,6 +60,20 @@ namespace cccstc
 		}
 
 		/// <summary>
+		/// Writes the given session to the database
+		/// </summary>
+		/// <param name="session">The session you would like to write</param>
+		/// <param name="database">The path to the database file</param>
+		public static void WriteSession(Session session, string database)
+		{
+			ExecuteSQL(String.Format("INSERT INTO sessions VALUES('{0}', '{1}', '{2}');",
+				session.Email,
+				session.Start.ToString(),
+				session.End.ToString()
+			), database);
+		}
+
+		/// <summary>
 		/// Returns all of the sessions logged in the database
 		/// <param name="database">The database file</param>
 		/// </summary>
@@ -71,6 +85,62 @@ namespace cccstc
 				yield return new Session (reader.GetString (0), reader.GetString (1), reader.GetString (2));
 
 			yield break;
+		}
+			
+		/// <summary>
+		/// Returns the sessions which are open, i.e, those with no ending field
+		/// </summary>
+		/// <returns>The sessions that have not ended yet</returns>
+		/// <param name="database">The path to the database file</param>
+		public static IEnumerable<Session> OpenSessions(string database)
+		{
+			var reader = ExecuteSQL ("SELECT * FROM sessions WHERE end = NULL;", database);
+
+			while (reader.Read ())
+				yield return new Session (reader.GetString (0), reader.GetString (1), "");
+
+			yield break;
+		}
+
+		/// <summary>
+		/// Gets the sessions that have ended
+		/// </summary>
+		/// <returns>The sessions which have an end field in the database</returns>
+		/// <param name="database">The database file to point to</param>
+		public static IEnumerable<Session> ClosedSessions(string database)
+		{
+			var reader = ExecuteSQL ("SELECT * FROM sessions WHERE end != NULL;", database);
+
+			while (reader.Read ())
+				yield return new Session (reader.GetString (0), reader.GetString (1), reader.GetString (2));
+
+			yield break;
+		}
+
+		/// <summary>
+		/// This will provide some information
+		/// </summary>
+		/// <param name="database">The path to the database file</param>
+		public static IEnumerable<Info> Information(string database)
+		{
+			var reader = ExecuteSQL ("SELECT * FROM information;", database);
+
+			while (reader.Read ())
+				yield return new Info (reader.GetString (0), reader.GetString (1));
+
+			yield break;
+		}
+
+		/// <summary>
+		/// This will write some information to the database
+		/// </summary>
+		/// <param name="title">The title of the informational post</param>
+		/// <param name="text">The text of the informational post</param>
+		/// <param name="database">The path to the database file</param>
+		public static void WriteInformation(string title, string text, int sticky, string database)
+		{
+			// TODO: Overload this to work on an Info object
+			ExecuteSQL(String.Format("INSERT INTO information VALUES('{0}', '{1}', '{2}');", title, text, sticky), database);
 		}
 
 		/// <summary>

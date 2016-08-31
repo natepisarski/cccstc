@@ -34,7 +34,9 @@ namespace cccstc
 		{
 			Email = email;
 			Start = Convert.ToDateTime (dateStarted);
-			End = Convert.ToDateTime (dateEnded);
+
+			// Sessions must always have a starting time; however, the end time can be null if the user is still working
+			End = Convert.ToDateTime(dateEnded);
 		}
 
 		/// <summary>
