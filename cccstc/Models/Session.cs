@@ -56,6 +56,16 @@ namespace cccstc
 		{
 			return ElapsedTime ().TotalHours * wage;
 		}
+
+		/// <summary>
+		/// Calculate the amount of money made for any given timespan
+		/// </summary>
+		/// <param name="timespan">How long the shift was</param>
+		/// <param name="wage">How much money the worker makes in an hour</param>
+		public static double Earned(TimeSpan timespan, double wage)
+		{
+			return timespan.TotalHours * wage;
+		}
 	}
 }
 

@@ -7,9 +7,13 @@ using cccstc;
 
 namespace cccstc.Controllers
 {
-
     public class SessionController : Controller
     {
+		/// <summary>
+		/// The current wage
+		/// </summary>
+		public const double WAGE = 8.38;
+
         public ActionResult Index()
         {
             return View ();
@@ -51,9 +55,10 @@ namespace cccstc.Controllers
 
 			foreach (Session s in sessions.Where(x => x.Email.Equals(email)))
 				totalHours = totalHours.Add (s.ElapsedTime());
-			
-			responseHTML += "</table><h3 class=\"center\">Total hours: " + totalHours + "</h3>";
 
+			// Show the total hours and the wages
+			responseHTML += "</table><h3 class=\"center\">Total hours: " + totalHours + "</h3>";
+			responseHTML += "<h3 class=\"center\">$" + cccstc.Session.Earned(totalHours, WAGE) + "</h3>";
 			return responseHTML;
 		}
 
