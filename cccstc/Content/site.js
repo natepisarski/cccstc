@@ -102,6 +102,10 @@ function submitInfoQuery(title, body)
 	ajaxRequest.done(function(html) { $("#message").replaceWith(html);});
 }
 
+function initializeDateForm(month, day, time)
+{
+}
+
 function registerUser(name, email)
 {
 	$.ajax({

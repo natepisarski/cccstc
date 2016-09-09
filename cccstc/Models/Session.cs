@@ -1,4 +1,5 @@
 ﻿using System;
+using HumDrum.Collections;
 
 namespace cccstc
 {
@@ -65,6 +66,30 @@ namespace cccstc
 		public static double Earned(TimeSpan timespan, double wage)
 		{
 			return timespan.TotalHours * wage;
+		}
+
+		/// <summary>
+		/// Return the string month of a given integer month, starting with one
+		/// </summary>
+		/// <returns>The name of the integer month</returns>
+		/// <param name="month">The integer value of the month (September = 1, December = 12)</param>
+		public static string MonthOf(int month)
+		{
+			return Transformations.Zip (
+				Transformations.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+				Transformations.Make (
+					"January",
+					"February",
+					"March",
+					"April",
+					"May",
+					"June",
+					"July",
+					"August",
+					"September",
+					"October",
+					"November", // This is gauraunteed to only return one item
+					"December")).When (x => x.Item1.Equals (month)).Get (0).Item2;
 		}
 	}
 }
