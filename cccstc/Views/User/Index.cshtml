@@ -6,6 +6,7 @@
 @{
     ViewBag.Title = "User";
     Layout = "/Views/Shared/_Layout.cshtml";
+    var emailList = STCFactory.Workers("Content/stcdb.sqlite").ForEvery(x => x.Email).RemoveDuplicates();
 }
 
 @helper GenerateBox(IEnumerable<string> items, string selectAttributes, string optionAttributes)
@@ -59,7 +60,7 @@
 <hr>
 <h2 class="center">Submit a session</h2>
 <div class="center">
-	<b>Email: </b> @GenerateBox(Model.ForEvery(x => x.Email).RemoveDuplicates(), "id=email", "") 
+	<b>Email: </b> @GenerateBox(emailList, "id=email", "") 
 	<br>
 </div>
 <row>

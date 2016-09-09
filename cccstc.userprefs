@@ -2,16 +2,17 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="firefox" />
   <MonoDevelop.Ide.Workbench ActiveDocument="cccstc/Views/User/Index.cshtml">
     <Files>
-      <File FileName="cccstc/Content/site.js" Line="106" Column="2" />
-      <File FileName="cccstc/Controllers/SessionController.cs" Line="78" Column="1" />
-      <File FileName="cccstc/Views/Timesheets/Index.cshtml" Line="20" Column="1" />
+      <File FileName="cccstc/Content/site.js" Line="1" Column="1" />
+      <File FileName="cccstc/Controllers/SessionController.cs" Line="1" Column="1" />
+      <File FileName="cccstc/Views/Timesheets/Index.cshtml" Line="1" Column="1" />
       <File FileName="cccstc/Controllers/TimesheetsController.cs" Line="1" Column="1" />
       <File FileName="cccstc/Global.asax.cs" Line="1" Column="1" />
       <File FileName="cccstc/Controllers/HomeController.cs" Line="1" Column="1" />
-      <File FileName="cccstc/Views/Shared/_Layout.cshtml" Line="3" Column="42" />
+      <File FileName="cccstc/Views/Shared/_Layout.cshtml" Line="1" Column="1" />
       <File FileName="cccstc/content/bootstrap-select/bootstrap-select.less" Line="1" Column="1" />
-      <File FileName="cccstc/Views/User/Index.cshtml" Line="52" Column="39" />
-      <File FileName="cccstc/Models/Session.cs" Line="91" Column="64" />
+      <File FileName="cccstc/Views/User/Index.cshtml" Line="50" Column="29" />
+      <File FileName="cccstc/Models/Session.cs" Line="1" Column="1" />
+      <File FileName="cccstc/Controllers/UserController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
