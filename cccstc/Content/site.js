@@ -117,6 +117,16 @@ function registerUser(name, email)
 	}).done(function () { reload(); });
 }
 
+function unregisterUsername(email)
+{
+	$.get({
+		url: "/Registration/Unregister?userName="+email,
+		data: {
+			email: email
+		}
+	}).done(function() {reload();});
+}
+
 function reload()
 {
 	window.location.reload(false);

@@ -13,6 +13,10 @@ namespace cccstc.Controllers
             return View ();
         }
 
+		/// <summary>
+		/// Writes the worker to the database
+		/// </summary>
+		/// <returns>The worker</returns>
 		public string WriteWorker()
 		{
 			var name = Request ["name"];
@@ -21,6 +25,16 @@ namespace cccstc.Controllers
 			STCFactory.WriteWorker (name, email, "Content/stcdb.sqlite");
 
 			return "";
+		}
+
+		/// <summary>
+		/// Unregister a user from the database
+		/// </summary>
+		public void Unregister(string userName)
+		{
+			
+			STCFactory.Unregister (userName, "Content/stcdb.sqlite");
+			this.RedirectToActionPermanent ("Index", "Home");
 		}
     }
 }

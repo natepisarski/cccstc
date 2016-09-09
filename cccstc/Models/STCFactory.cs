@@ -171,6 +171,28 @@ namespace cccstc
 		}
 
 		/// <summary>
+		/// Unregister the user with the specified email address. This will remove them from the 
+		/// 'Workers' table, but not from the Sessions table.
+		/// </summary>
+		/// <param name="email">The email address of the worker</param>
+		/// <param name="database">The path to the database file</param>
+		public static void Unregister(string email, string database)
+		{
+			ExecuteSQL (String.Format ("DELETE FROM workers WHERE email='{0}';", email), database);
+		}
+
+		/// <summary>
+		/// Unregister the specified STC worker from the database. This will remove them from the 
+		/// 'Workers' table, but nto from the Sessions table.
+		/// </summary>
+		/// <param name="worker">The worker to unregister</param>
+		/// <param name="database">The path to the database file</param>
+		public static void Unregister(STC worker, string database)
+		{
+			Unregister (worker.Email, database);
+		}
+
+		/// <summary>
 		/// Executes an SQL command on the database
 		/// </summary>
 		/// <returns>The reader that is returned by running this SQL command</returns>
